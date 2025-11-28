@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="fr" >
+    <head>
+        <meta charset="UTF-8" />
+        <title>Calendrier de l'avent</title>
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <script src="https://cdn.tailwindcss.com" ></script>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Great+Vibes&display=swap" >
+        <link rel="stylesheet" href="design.css" />
+    </head>
+
+    <body class="p-4 flex justify-center" >
+        <div id="calendar-container" class="relative w-full z-20 shadow-2xl" >
+            <!-- Header section -->
+            <div class="p-4 text-center text-white bg-red-600 shadow-md relative z-20 sticky top-0" >
+                <h1 class="text-3xl font-bold tracking-tight" >Calendrier de l'avent 2025</h1>
+                <p id="info-message" class="text-sm mt-1" >Tap sur les cases pour les ouvrir !</p>
+            </div>
+
+            <!-- Content section -->
+            <div id="tree-bg" class="absolute" ></div>
+            <div id="doors-grid" class="relative z-10 flex flex-col-reverse p-4" ></div>
+        </div>
+
+        <script src="advent_calendar.js" ></script>
+    </body>
+</html>
