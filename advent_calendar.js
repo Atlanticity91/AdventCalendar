@@ -186,9 +186,14 @@ function create_calendar( ) {
     let door_to_center = null;
     let available_door = get_available_doors( );
 
+    console.log( available_door );
+
     for ( let day = 1; day <= g_cases.length; day++ ) {
         const is_available = day <= available_door;
-        const is_opened = opened_doors.has(day);
+        const is_opened = opened_doors.has( day );
+
+        console.log( is_available );
+        console.log( is_opened );
 
         const wrapper_alignement = get_wrapper_alignement( day );
         const wrapper_class      = `door-wrapper flex flex-col items-start p-1` + wrapper_alignement;
@@ -210,7 +215,7 @@ function create_calendar( ) {
             door.onclick = null;
         }
         
-        if ( is_available || !is_opened ) {
+        if ( is_available && !is_opened ) {
             door.onclick = ( e ) => {
                 e.stopPropagation( );
                 
