@@ -98,6 +98,7 @@ h2 {
 */
 
 .door:nth-child( even ) { background-color : #10b981; }
+.door-wrapper:nth-child( 25 ) { transform : translateX( 15% ); }
 .door-wrapper:nth-child( 24 ) { transform : translateX( 30% ); }
 .door-wrapper:nth-child( 23 ) { transform : translateX( 20% ); }
 .door-wrapper:nth-child( 22 ) { transform : translateX( 15% ); }
