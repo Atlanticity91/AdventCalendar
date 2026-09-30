@@ -59,9 +59,6 @@ function get_available_doors( ) {
     const today = new Date( );
     const month = today.getMonth( );
     
-    if ( month !== 11 )
-        return 0;
-    
     const day = today.getDate( );
 
     if ( day < g_cases.length )
