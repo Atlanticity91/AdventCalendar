@@ -1,2 +1,5 @@
-# AdventCalendar
-Advent calendar for 2025
+# Advent Calendar
+
+Advent calendar `2026` edition made with `React` and `Vite` using `Typescript`
+
+Calendar selection via anchor `?user=xxxx`
