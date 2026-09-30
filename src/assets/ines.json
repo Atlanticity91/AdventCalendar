@@ -1,0 +1,9 @@
+{
+    "name" : "Ines Gafanao",
+    "languages" : [ "fr" ],
+    "extended" : false,
+    "db" : {
+        "tickets" : [ ],
+        "calendar" : [ ]
+    }
+}
