@@ -1,0 +1,162 @@
+{
+  "name": "",
+  "year": 2026,
+  "languages": [
+    "en"
+  ],
+  "extended": false,
+  "audioTheme": "classic",
+  "days": {
+    "1": {
+      "title": "Day 1",
+      "text": "Placeholder for day 1 — replace with the real letter.\n\nThis file is the fallback. Any ?user= without its own letters/<user>.json gets this one."
+    },
+    "2": {
+      "title": "Day 2",
+      "text": "Placeholder for day 2 — replace with the real letter.\n\nThe image below is the old Vite starter logo, moved here to prove the media path and BASE_URL prefix resolve on GitHub Pages. Delete it once you have real pictures.",
+      "ticket": {
+        "id": "hc",
+        "label": "Hot chocolate",
+        "note": "Cream included, any evening"
+      },
+      "effects": [
+        "firework",
+        "bell",
+        "confetti"
+      ]
+    },
+    "3": {
+      "title": "Day 3",
+      "text": "Placeholder for day 3 - replace with the real letter."
+    },
+    "4": {
+      "title": "Day 4",
+      "text": "Placeholder for day 4 - replace with the real letter."
+    },
+    "5": {
+      "title": "Day 5",
+      "text": "Placeholder for day 5 - replace with the real letter."
+    },
+    "6": {
+      "title": "Day 6",
+      "text": "Placeholder for day 6 - replace with the real letter."
+    },
+    "7": {
+      "title": "Day 7",
+      "text": "Placeholder for day 7 - replace with the real letter."
+    },
+    "8": {
+      "title": "Day 8",
+      "text": "Placeholder for day 8 - replace with the real letter."
+    },
+    "9": {
+      "title": "Day 9",
+      "text": "Placeholder for day 9 - replace with the real letter."
+    },
+    "10": {
+      "title": "Day 10",
+      "text": "Placeholder for day 10 - replace with the real letter."
+    },
+    "11": {
+      "title": "Day 11",
+      "text": "Placeholder for day 11 - replace with the real letter."
+    },
+    "12": {
+      "title": "Day 12",
+      "text": "Placeholder for day 12 - replace with the real letter.",
+      "ticket": {
+        "id": "walk",
+        "label": "Winter walk",
+        "note": "One walk, snacks provided"
+      }
+    },
+    "13": {
+      "title": "Day 13",
+      "text": "Placeholder for day 13 - replace with the real letter."
+    },
+    "14": {
+      "title": "Day 14",
+      "text": "Placeholder for day 14 - replace with the real letter."
+    },
+    "15": {
+      "title": "Day 15",
+      "text": "Placeholder for day 15 - replace with the real letter."
+    },
+    "16": {
+      "title": "Day 16",
+      "text": "Placeholder for day 16 - replace with the real letter."
+    },
+    "17": {
+      "title": "Day 17",
+      "text": "Placeholder for day 17 - replace with the real letter."
+    },
+    "18": {
+      "title": "Day 18",
+      "text": "Placeholder for day 18 - replace with the real letter."
+    },
+    "19": {
+      "title": "Day 19",
+      "text": "Placeholder for day 19 - replace with the real letter."
+    },
+    "20": {
+      "title": "Day 20",
+      "text": "Placeholder for day 20 - replace with the real letter."
+    },
+    "21": {
+      "title": "Day 21",
+      "text": "Placeholder for day 21 - replace with the real letter."
+    },
+    "22": {
+      "title": "Day 22",
+      "text": "Placeholder for day 22 - replace with the real letter."
+    },
+    "23": {
+      "title": "Day 23",
+      "text": "Placeholder for day 23 - replace with the real letter.",
+      "effects": [
+        "firework"
+      ]
+    },
+    "24": {
+      "title": "Day 24",
+      "text": "Placeholder for day 24 - replace with the real letter.",
+      "effects": [
+        "confetti",
+        "bell",
+        "firework"
+      ]
+    },
+    "25": {
+      "title": "Day 25",
+      "text": "Placeholder for day 25 (Christmas Day) - replace with the real letter."
+    },
+    "26": {
+      "title": "Day 26",
+      "text": "Placeholder for day 26 - replace with the real letter."
+    },
+    "27": {
+      "title": "Day 27",
+      "text": "Placeholder for day 27 - replace with the real letter."
+    },
+    "28": {
+      "title": "Day 28",
+      "text": "Placeholder for day 28 - replace with the real letter."
+    },
+    "29": {
+      "title": "Day 29",
+      "text": "Placeholder for day 29 - replace with the real letter."
+    },
+    "30": {
+      "title": "Day 30",
+      "text": "Placeholder for day 30 - replace with the real letter."
+    },
+    "31": {
+      "title": "Day 31",
+      "text": "Placeholder for day 31 - replace with the real letter."
+    },
+    "32": {
+      "title": "Day 32",
+      "text": "Placeholder for day 32, which is 1 January of next year - the extra day an extended calendar gets. Replace with the real letter."
+    }
+  }
+}
