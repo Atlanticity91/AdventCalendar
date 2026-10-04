@@ -1,0 +1,256 @@
+/* Styling follows reference/demo.html (its #rail / #dr / .sl / .bw rules) so the
+   tray matches the prototype it was ported from. Class names are ours. */
+
+.tray {
+  position: fixed;
+  inset: 0;
+  z-index: var(--z-tray-panel);
+  pointer-events: none;
+}
+
+/* ---------- rail ---------- */
+
+.tray-rail {
+  position: absolute;
+  top: 50%;
+  right: var(--pw);
+  transform: translateY(-50%);
+  z-index: var(--z-tray-rail);
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  pointer-events: auto;
+  transition: right 0.3s;
+}
+
+.tray-tab {
+  width: 52px;
+  height: 52px;
+  font-size: 22px;
+  line-height: 1;
+  /* Tabs attached to the screen edge: rounded on the left only. */
+  border-radius: 14px 0 0 14px;
+  border: 2px solid #c9a44c;
+  border-right: 0;
+  background: linear-gradient(160deg, #252a52, #12162e);
+  color: #fff;
+  box-shadow: -3px 3px 10px rgba(0, 0, 0, 0.45);
+  cursor: pointer;
+}
+
+.tray-tab[data-active='true'] {
+  background: linear-gradient(160deg, #ffe08a, #b8862a);
+}
+
+/* ---------- panel ---------- */
+
+.tray-panel {
+  position: absolute;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  width: min(320px, 85vw);
+  padding: calc(18px + env(safe-area-inset-top)) 14px calc(14px + env(safe-area-inset-bottom));
+  background: linear-gradient(180deg, #1a1f45, #0d1030);
+  border-left: 3px solid #c9a44c;
+  box-shadow: -8px 0 30px rgba(0, 0, 0, 0.5);
+  overflow-y: auto;
+  pointer-events: auto;
+  transform: translateX(100%);
+  /* `visibility` keeps the closed panel's 24 buttons out of the tab order while
+     still letting the slide-out finish. */
+  visibility: hidden;
+  transition:
+    transform 0.3s,
+    visibility 0.3s;
+}
+
+.tray[data-open='true'] .tray-panel {
+  transform: none;
+  visibility: visible;
+}
+
+/* Title and count share one centred line. */
+.tray-head {
+  display: flex;
+  align-items: baseline;
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: 3px 10px;
+  padding-bottom: 12px;
+  margin-bottom: 14px;
+  border-bottom: 1px solid rgba(201, 164, 76, 0.45);
+  text-align: center;
+}
+
+.tray-title {
+  margin: 0;
+  font-family: var(--serif);
+  font-size: 24px;
+  font-weight: 600;
+  color: #c9a44c;
+}
+
+.tray-sub {
+  margin: 0;
+  font-family: var(--sans);
+  font-size: 14px;
+  opacity: 0.85;
+}
+
+.tray-empty {
+  margin: 8px 0;
+  font-family: var(--sans);
+  font-size: 14px;
+  line-height: 1.55;
+  opacity: 0.8;
+}
+
+/* ---------- badges ---------- */
+
+.badge-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 10px;
+}
+
+.badge {
+  display: block;
+  position: relative;
+  background: none;
+  border: 0;
+  padding: 0;
+  cursor: pointer;
+}
+
+.badge:disabled {
+  cursor: default;
+}
+
+.badge svg {
+  display: block;
+  width: 100%;
+}
+
+/* Locked: dark plate */
+.badge[data-acquired='false'] circle {
+  fill: #171a35;
+  stroke: #3a4060;
+  stroke-width: 2;
+}
+
+/* Acquired: gold ball with a soft glow */
+.badge[data-acquired='true'] circle {
+  fill: url(#badge-ball);
+  stroke: #fff;
+  stroke-width: 1.5;
+}
+
+.badge[data-acquired='true'] svg {
+  filter: drop-shadow(0 0 5px rgba(242, 193, 78, 0.55));
+}
+
+.badge[data-acquired='true']:hover svg {
+  filter: drop-shadow(0 0 9px rgba(242, 193, 78, 0.85));
+}
+
+.badge text {
+  fill: #4a2c00;
+  font-family: var(--serif);
+  font-size: 18px;
+  font-weight: 700;
+}
+
+.badge .lock rect {
+  fill: #58608a;
+}
+
+.badge .lock path {
+  stroke: #58608a;
+  stroke-width: 2.5;
+}
+
+/* Coupon markers: a redeemed stamp wins over an unredeemed ticket marker. */
+.badge-stamp,
+.badge-ticket {
+  position: absolute;
+  right: -3px;
+  bottom: -3px;
+  font-style: normal;
+  line-height: 1;
+}
+
+.badge-stamp {
+  width: 20px;
+  height: 20px;
+  box-sizing: border-box;
+  border: 2px solid #fff;
+  border-radius: 50%;
+  background: #a3121f;
+  color: #fff;
+  font-family: var(--sans);
+  font-size: 12px;
+  font-weight: 700;
+  line-height: 16px;
+  text-align: center;
+}
+
+.badge-ticket {
+  font-size: 15px;
+}
+
+/* ---------- ticket rows ---------- */
+
+.ticket-row {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  width: 100%;
+  padding: 8px;
+  margin-bottom: 10px;
+  border: 1px solid rgba(201, 164, 76, 0.5);
+  border-radius: 10px;
+  background: rgba(255, 255, 255, 0.06);
+  color: var(--snow);
+  font-family: var(--sans);
+  font-size: 15px;
+  text-align: left;
+  cursor: pointer;
+}
+
+.ticket-row[data-state='locked'] {
+  opacity: 0.55;
+  cursor: default;
+}
+
+.ticket-row b {
+  display: block;
+}
+
+.ticket-row small {
+  opacity: 0.75;
+}
+
+.ticket-row .badge {
+  width: 46px;
+  flex: none;
+}
+
+.badge:disabled {
+  opacity: 1;
+}
+
+@media (max-width: 480px) {
+  .tray-tab {
+    width: 46px;
+    height: 46px;
+    font-size: 19px;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .tray-panel,
+  .tray-rail {
+    transition: none;
+  }
+}

@@ -1,0 +1,8 @@
+/* Sits above the letter (40) and below the toast (50). Never intercepts clicks. */
+.effects-canvas {
+  position: fixed;
+  inset: 0;
+  z-index: var(--z-fireworks);
+  display: block;
+  pointer-events: none;
+}

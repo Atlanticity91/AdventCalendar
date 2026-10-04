@@ -1,0 +1,135 @@
+.list-view {
+  position: relative;
+  z-index: 2;
+  width: 100%;
+  min-height: 100dvh;
+  padding: calc(20px + env(safe-area-inset-top)) 16px calc(40px + env(safe-area-inset-bottom));
+  padding-right: 74px; /* clears the tray rail */
+  background: var(--bg);
+  color: var(--snow);
+  overflow-y: auto;
+}
+
+.list-head {
+  max-width: 640px;
+  margin: 0 auto 20px;
+  text-align: center;
+}
+
+.list-head h1 {
+  margin: 0 0 6px;
+  font-family: var(--serif);
+  font-size: clamp(22px, 6vw, 30px);
+  font-weight: 600;
+  color: var(--gold);
+}
+
+.list-head p {
+  margin: 0;
+  font-family: var(--sans);
+  font-size: 13px;
+  opacity: 0.7;
+}
+
+.list-letter {
+  max-width: 640px;
+  margin: 0 auto 20px;
+}
+
+.list-back {
+  padding: 8px 14px;
+  margin-bottom: 12px;
+  border: 1px solid rgba(201, 164, 76, 0.5);
+  border-radius: 16px;
+  background: none;
+  color: var(--snow);
+  font-family: var(--sans);
+  font-size: 14px;
+  cursor: pointer;
+}
+
+.list-days {
+  max-width: 640px;
+  margin: 0 auto;
+  padding: 0;
+  list-style: none;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.list-row {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  width: 100%;
+  padding: 10px 12px;
+  border: 1px solid rgba(201, 164, 76, 0.28);
+  border-radius: 10px;
+  background: rgba(255, 255, 255, 0.04);
+  color: var(--snow);
+  font-family: var(--sans);
+  text-align: left;
+  cursor: pointer;
+}
+
+.list-row[data-open='false'] {
+  opacity: 0.5;
+  cursor: default;
+}
+
+.list-row:not([data-open='false']):hover {
+  background: rgba(242, 193, 78, 0.12);
+  border-color: var(--gold);
+}
+
+.list-num {
+  flex: none;
+  width: 30px;
+  height: 30px;
+  display: grid;
+  place-items: center;
+  border-radius: 50%;
+  background: rgba(242, 193, 78, 0.16);
+  color: var(--gold);
+  font-weight: 700;
+  font-size: 14px;
+}
+
+.list-body {
+  flex: 1;
+  min-width: 0;
+}
+
+.list-body b {
+  display: block;
+  font-family: var(--serif);
+  font-size: 16px;
+}
+
+.list-body small {
+  display: block;
+  opacity: 0.7;
+  font-size: 12.5px;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.list-flags {
+  flex: none;
+  font-size: 12px;
+  color: var(--gold);
+  white-space: nowrap;
+}
+
+@media (max-width: 420px) {
+  .list-view {
+    padding-right: 16px;
+    padding-left: 12px;
+  }
+
+  .list-flags {
+    display: none;
+  }
+}

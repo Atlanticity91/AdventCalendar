@@ -1,0 +1,92 @@
+/* Ported from reference/demo.html rules for #cd (lines 69-76). */
+.countdown {
+  position: fixed;
+  inset: 0;
+  z-index: var(--z-countdown);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  padding: 20px;
+  padding-bottom: calc(20px + env(safe-area-inset-bottom));
+  background: radial-gradient(circle at 50% 30%, #1b2a6b, var(--bg) 70%);
+  text-align: center;
+  /* Stays mounted so the reveal fades out over the tree rather than cutting to it. */
+  opacity: 1;
+  transition: opacity 1.5s;
+}
+
+.countdown[data-visible='false'] {
+  opacity: 0;
+  pointer-events: none;
+}
+
+.countdown p {
+  margin: 0;
+  opacity: 0.8;
+}
+
+.countdown-label {
+  font-family: var(--sans);
+  font-size: 15px;
+  color: var(--snow);
+}
+
+.countdown-star {
+  font-size: 54px;
+  animation: countdown-pulse 2s ease-in-out infinite;
+}
+
+@keyframes countdown-pulse {
+  50% {
+    transform: scale(1.15);
+  }
+}
+
+.countdown-clock {
+  font-family: var(--serif);
+  font-size: clamp(32px, 10vw, 64px);
+  font-weight: 600;
+  color: var(--gold);
+  /* Keeps the digits from jittering as they change every second. */
+  font-variant-numeric: tabular-nums;
+}
+
+.countdown-target {
+  font-family: var(--sans);
+  font-size: 13px;
+}
+
+.countdown-actions {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 10px;
+  margin-top: 14px;
+}
+
+.countdown-btn {
+  padding: 8px 16px;
+  border: 1px solid rgba(255, 255, 255, 0.4);
+  border-radius: 18px;
+  background: none;
+  color: var(--snow);
+  font-family: var(--sans);
+  font-size: 14px;
+  cursor: pointer;
+}
+
+.countdown-btn:hover {
+  background: rgba(255, 255, 255, 0.1);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .countdown {
+    transition: none;
+  }
+
+  .countdown-star {
+    animation: none;
+  }
+}

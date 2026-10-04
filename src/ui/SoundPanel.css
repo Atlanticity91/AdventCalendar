@@ -1,0 +1,42 @@
+/* Matches reference/demo.html rules for #sp (lines 24-28). */
+
+.sound-panel {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  padding: 12px;
+  border-radius: 12px;
+  background: rgba(10, 10, 30, 0.85);
+}
+
+.sound-toggle {
+  padding: 8px;
+  border: 2px solid var(--gold);
+  border-radius: 16px;
+  background: none;
+  color: var(--gold);
+  font-family: var(--sans);
+  font-size: 14px;
+  font-weight: 600;
+  cursor: pointer;
+}
+
+.sound-toggle:hover {
+  background: rgba(242, 193, 78, 0.12);
+}
+
+.sound-row {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 10px;
+  font-family: var(--sans);
+  font-size: 14px;
+  color: var(--snow);
+}
+
+.sound-row input[type='range'] {
+  width: 120px;
+  accent-color: var(--gold);
+  cursor: pointer;
+}

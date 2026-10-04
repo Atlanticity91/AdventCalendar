@@ -1,0 +1,50 @@
+{
+  "classic": {
+    "name": "Classic",
+    "scale": [523.25, 587.33, 659.25, 783.99, 880.0],
+    "sequence": [0, 2, 4, 2, 3, 1, 2, 0, 4, 3, 2, 1, 0, 1, 2, 0],
+    "stepSeconds": 0.42,
+    "waveform": "triangle",
+    "noteDuration": 0.7,
+    "noteVolume": 0.18,
+    "lowpass": 2500,
+    "bassEverySteps": 4,
+    "bassDivisor": 4,
+    "bassVolume": 0.25,
+    "bassDuration": 1.4,
+    "defaultMusicVolume": 0.4,
+    "defaultEffectsVolume": 0.8
+  },
+  "celesta": {
+    "name": "Celesta",
+    "scale": [783.99, 880.0, 1046.5, 1174.66, 1318.51],
+    "sequence": [0, 2, 1, 3, 2, 4, 3, 1, 0, 2, 4, 3, 1, 0, 2, 1],
+    "stepSeconds": 0.56,
+    "waveform": "sine",
+    "noteDuration": 1.1,
+    "noteVolume": 0.15,
+    "lowpass": 4200,
+    "bassEverySteps": 8,
+    "bassDivisor": 2,
+    "bassVolume": 0.16,
+    "bassDuration": 2.2,
+    "defaultMusicVolume": 0.35,
+    "defaultEffectsVolume": 0.8
+  },
+  "midnight": {
+    "name": "Midnight",
+    "scale": [392.0, 440.0, 523.25, 587.33, 659.25],
+    "sequence": [0, 2, 1, 0, 3, 2, 1, 0],
+    "stepSeconds": 0.85,
+    "waveform": "triangle",
+    "noteDuration": 1.6,
+    "noteVolume": 0.13,
+    "lowpass": 1400,
+    "bassEverySteps": 4,
+    "bassDivisor": 2,
+    "bassVolume": 0.22,
+    "bassDuration": 3,
+    "defaultMusicVolume": 0.32,
+    "defaultEffectsVolume": 0.7
+  }
+}

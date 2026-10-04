@@ -1,0 +1,85 @@
+/* Sits low-left, clear of the tray rail on the right and the day readout top-left.
+   Deliberately quiet: it is an offer, not an error. */
+.music-prompt {
+  position: fixed;
+  left: 14px;
+  bottom: calc(14px + env(safe-area-inset-bottom));
+  z-index: 31;
+
+  display: flex;
+  align-items: center;
+  gap: 7px;
+  padding: 8px 14px 8px 11px;
+
+  border: 1px solid rgba(242, 193, 78, 0.55);
+  border-radius: 999px;
+  background: rgba(11, 18, 48, 0.86);
+  backdrop-filter: blur(6px);
+  -webkit-backdrop-filter: blur(6px);
+
+  color: var(--gold);
+  font-family: var(--sans);
+  font-size: 13px;
+  letter-spacing: 0.02em;
+  cursor: pointer;
+
+  animation: music-prompt-in 0.5s ease both;
+}
+
+/* A slow breath, so it reads as "here if you want me" rather than demanding. */
+.music-prompt > span:first-child {
+  display: inline-block;
+  animation: music-prompt-pulse 2.6s ease-in-out infinite;
+}
+
+.music-prompt:hover {
+  background: rgba(242, 193, 78, 0.16);
+  border-color: var(--gold);
+}
+
+.music-prompt:focus-visible {
+  outline: 2px solid var(--gold);
+  outline-offset: 3px;
+}
+
+@keyframes music-prompt-in {
+  from {
+    opacity: 0;
+    transform: translateY(8px);
+  }
+  to {
+    opacity: 1;
+    transform: none;
+  }
+}
+
+@keyframes music-prompt-pulse {
+  0%,
+  100% {
+    transform: scale(1);
+    opacity: 0.75;
+  }
+  50% {
+    transform: scale(1.18);
+    opacity: 1;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .music-prompt {
+    animation: none;
+  }
+
+  .music-prompt > span:first-child {
+    animation: none;
+    opacity: 1;
+  }
+}
+
+@media (max-width: 420px) {
+  .music-prompt {
+    left: 10px;
+    padding: 7px 11px 7px 9px;
+    font-size: 12px;
+  }
+}

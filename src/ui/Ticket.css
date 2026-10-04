@@ -1,0 +1,121 @@
+/* Based on reference/demo.html rules for #tk .tk / .tm / .ts, but re-laid out for
+   a DOWNWARD tear: the stub sits below the body, so the perforation is horizontal
+   and the notches sit on the bottom edge.
+
+   The stub is dragged by writing transform straight to the DOM node, so its
+   transitions are set inline by Ticket.tsx rather than here. */
+
+.ticket {
+  display: flex;
+  flex-direction: column;
+  margin: 18px 0 4px;
+  font-family: var(--sans);
+  font-size: 14px;
+}
+
+.ticket[data-used='true'] .ticket-main {
+  filter: grayscale(1);
+}
+
+.ticket[data-used='true'] .ticket-stub {
+  opacity: 0;
+  pointer-events: none;
+}
+
+.ticket-main {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+  padding: 12px 14px;
+  background: var(--ticket);
+  border-radius: 8px 8px 0 0;
+  border-bottom: 2px dashed #b89a5a;
+}
+
+/* Punched notches on the perforation. They take the letter's paper colour so
+   they read as holes rather than dots. */
+.ticket-main::before,
+.ticket-main::after {
+  content: '';
+  position: absolute;
+  bottom: -9px;
+  width: 16px;
+  height: 16px;
+  border-radius: 50%;
+  background: var(--paper);
+  z-index: 1;
+}
+
+.ticket-main::before {
+  left: -8px;
+}
+
+.ticket-main::after {
+  right: -8px;
+}
+
+.ticket-main small {
+  font-size: 11px;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  opacity: 0.7;
+  color: var(--ink);
+}
+
+.ticket-main b {
+  font-size: 19px;
+  color: var(--ink);
+}
+
+.ticket-main span {
+  font-size: 13px;
+  color: var(--ink);
+  opacity: 0.8;
+}
+
+/* USED stamp, only shown once redeemed */
+.ticket-main em {
+  display: none;
+  position: absolute;
+  right: 14px;
+  top: 10px;
+  transform: rotate(-12deg);
+  padding: 1px 8px;
+  border: 3px solid #a3121f;
+  color: #a3121f;
+  font-style: normal;
+  font-weight: 800;
+  letter-spacing: 0.06em;
+}
+
+.ticket[data-used='true'] .ticket-main em {
+  display: block;
+}
+
+.ticket-stub {
+  height: 46px;
+  display: grid;
+  place-items: center;
+  background: var(--ticket);
+  border-radius: 0 0 8px 8px;
+  /* Required: without this the page scrolls instead of dragging on touch. */
+  touch-action: none;
+  cursor: grab;
+  user-select: none;
+}
+
+.ticket-stub span {
+  font-size: 12px;
+  color: var(--ink);
+}
+
+.ticket-stub:active {
+  cursor: grabbing;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .ticket-stub {
+    transition: none;
+  }
+}

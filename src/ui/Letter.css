@@ -1,0 +1,146 @@
+.letter-backdrop {
+  position: fixed;
+  inset: 0;
+  z-index: var(--z-letter);
+  display: grid;
+  place-items: center;
+  padding: 20px;
+  padding-bottom: calc(20px + env(safe-area-inset-bottom));
+  background: rgba(6, 10, 26, 0.55);
+  backdrop-filter: blur(8px);
+  -webkit-backdrop-filter: blur(8px);
+  animation: letter-fade 0.25s ease-out;
+}
+
+.letter {
+  position: relative;
+  width: min(520px, 100%);
+  max-height: min(80dvh, 720px);
+  overflow-y: auto;
+  padding: 40px 36px 34px;
+  border-radius: 4px;
+  background:
+    linear-gradient(160deg, rgba(255, 255, 255, 0.55), transparent 60%),
+    var(--paper);
+  color: var(--ink);
+  box-shadow:
+    0 24px 60px rgba(0, 0, 0, 0.45),
+    0 2px 0 rgba(255, 255, 255, 0.35) inset;
+  animation: letter-rise 0.3s cubic-bezier(0.2, 0.9, 0.3, 1);
+}
+
+/* Torn-edge hint along the top, like a torn page */
+.letter::before {
+  content: '';
+  position: absolute;
+  inset: 0 0 auto;
+  height: 6px;
+  background: repeating-linear-gradient(
+    90deg,
+    var(--paper) 0 7px,
+    transparent 7px 14px
+  );
+  opacity: 0.9;
+}
+
+.letter-day {
+  display: block;
+  font-family: var(--script);
+  font-size: 26px;
+  line-height: 1;
+  color: var(--gold);
+  text-shadow: 0 1px 0 rgba(59, 42, 26, 0.12);
+}
+
+.letter-title {
+  margin: 6px 0 18px;
+  font-family: var(--script);
+  font-size: 30px;
+  font-weight: 600;
+  line-height: 1.15;
+  color: var(--ink);
+}
+
+.letter-text {
+  font-family: var(--script);
+  font-size: 22px;
+  line-height: 1.65;
+}
+
+.letter-image {
+  display: block;
+  width: 100%;
+  max-width: 340px;
+  height: auto;
+  margin: 0 auto 20px;
+  border-radius: 3px;
+  box-shadow: 0 6px 18px rgba(59, 42, 26, 0.22);
+}
+
+.letter-text p {
+  margin: 0 0 14px;
+}
+
+/* Paragraphs shouldn't run right up to the close button */
+.letter-text p:last-child {
+  margin-bottom: 0;
+}
+
+.letter-close {
+  position: absolute;
+  top: 12px;
+  right: 12px;
+  width: 36px;
+  height: 36px;
+  display: grid;
+  place-items: center;
+  font-size: 15px;
+  color: var(--ink);
+  background: transparent;
+  border: 1px solid rgba(59, 42, 26, 0.25);
+  border-radius: 50%;
+  cursor: pointer;
+  transition: background 0.15s, transform 0.15s;
+}
+
+.letter-close:hover {
+  background: rgba(59, 42, 26, 0.08);
+}
+
+.letter-close:active {
+  transform: scale(0.94);
+}
+
+@keyframes letter-fade {
+  from {
+    opacity: 0;
+  }
+}
+
+@keyframes letter-rise {
+  from {
+    opacity: 0;
+    transform: translateY(14px) scale(0.98);
+  }
+}
+
+@media (max-width: 480px) {
+  .letter {
+    padding: 32px 24px 28px;
+  }
+
+  .letter-title {
+    font-size: 25px;
+  }
+
+  .letter-text {
+    font-size: 16px;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .letter-backdrop,
+  .letter {
+    animation: none;
+  }
+}

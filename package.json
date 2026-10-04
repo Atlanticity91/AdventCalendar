@@ -7,7 +7,9 @@
     "dev": "vite",
     "build": "tsc -b && vite build",
     "lint": "eslint .",
-    "preview": "vite preview"
+    "preview": "vite preview",
+    "verify": "node --import ./scripts/register.mjs scripts/verify.mts && node --import ./scripts/register.mjs scripts/verify-store.mts",
+    "check": "npm run build && npm run lint && npm run verify || (echo 'NOTE: lint has one known error (CameraSetup) that short-circuits this chain; run npm run verify directly.' && false)"
   },
   "dependencies": {
     "@react-three/drei": "^10.7.9",
